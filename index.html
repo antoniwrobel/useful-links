@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Futuristic Tiles</title>
+    <style>
+        /* Background image for the page */
+        body {
+            /* background-image: url('https://i.imgur.com/57ZR7V5.jpg'); */
+            margin: 40px;
+            background-size: cover;
+            background-color: #dedede;
+            background-position: center center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .container {
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 20px 40px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+
+        /* Container for the tiles */
+        .tiles-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .form-container {
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .my-form-status {
+            position: absolute;
+            bottom: 0;
+        }
+
+        .form-input {
+            display: flex;
+            gap: 20px;
+            height: 56px;
+            align-items: center;
+            letter-spacing: 2px;
+        }
+
+        .form-container input {
+            height: 32px;
+            border-radius: 4px;
+            border: 1px solid #dedede;
+            padding-left: 10px;
+        }
+
+        input {
+            letter-spacing: 2px;
+        }
+
+        input:focus,
+        input:focus-visible {
+            border: 1px solid #1abc9c;
+            outline: none;
+        }
+
+        button[type="button"] {
+            background-color: #1abc9c;
+            border: none;
+            height: 36px;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            letter-spacing: 2px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button[type="button"]:hover {
+            background-color: #20957e;
+        }
+
+
+        /* Styles for the tiles */
+        .tile {
+            position: relative;
+            cursor: pointer;
+            width: 200px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: top 0.1s ease;
+            border-radius: 10px;
+            top: 0;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #dedede;
+            box-shadow: 10px 10px 10px 0 #dedede
+        }
+
+        .tile:hover {
+            top: -5px;
+        }
+
+        .tile:hover .more {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tile img {
+            margin-top: 10px;
+            max-width: 40px;
+        }
+
+        /* Heading for the page */
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+        /* Subheading for the page */
+        h2 {
+            font-size: 30px;
+            margin-top: 0;
+            margin-bottom: 50px;
+        }
+
+        h4,
+        h5 {
+            margin: 0;
+        }
+
+        /* Styles for the tile content */
+        .tile-content {
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .more {
+            font-weight: normal;
+            font-size: 12px;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+        }
+
+        /* Styles for the modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: flex-start;
+            z-index: 1;
+        }
+
+        .modal.open {
+            display: flex;
+            position: fixed;
+        }
+
+        .modal-content {
+            position: relative;
+            top: 20vh;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 500px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            cursor: initial;
+        }
+
+        .hyperlink-list {
+            list-style: none;
+            max-width: 500px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 0;
+            justify-content: center;
+        }
+
+        .hyperlink-list li {
+            border: 1px solid #dedede;
+            box-sizing: border-box;
+            border-radius: 4px;
+            padding: 5px 10px;
+        }
+
+        .hyperlink-list a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .hyperlink-list a:hover {
+            color: #1abc9c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Useful Links</h1>
+        <h2>i3ART</h2>
+
+        <div class="tiles-container">
+            <!-- THIS IS MODAL EXAMPLE -->
+            <div class="tile">
+                <div class="tile-content">
+                    <h5>
+                        Quantexa1
+                    </h5>
+                    <img src="q-icon.jpg" alt="quantexa icon" />
+                    <div class="more">...show more</div>
+                </div>
+
+                <div class="modal">
+                    <div class="modal-content">
+                        <h4>IECD Countries</h4>
+                        <ul class="hyperlink-list">
+                            <li><a href="1" target="_blank">Link 1</a></li>
+                            <li><a href="2" target="_blank">Link 2</a></li>
+                            <li><a href="#" target="_blank">Link 3</a></li>
+                            <li><a href="#" target="_blank">Link 4</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tile">
+                <div class="tile-content">
+                    <h5>
+                        Quantexa2
+                    </h5>
+                    <img src="q-icon.jpg" alt="quantexa icon" />
+                    <div class="more">...show more</div>
+                </div>
+
+                <div class="modal">
+                    <div class="modal-content">
+                        <h4>IECD Countries</h4>
+                        <ul class="hyperlink-list">
+                            <li><a href="1" target="_blank">Link 4</a></li>
+                            <li><a href="2" target="_blank">Link 3</a></li>
+                            <li><a href="#" target="_blank">Link 2</a></li>
+                            <li><a href="#" target="_blank">Link 1</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THIS IS PLAIN (NO-MODAL) REDIRECTION EXAMPLE -->
+            <div class="tile">
+                <a href="https://www.wp.pl" target="_blank" class="tile-content">
+                    <h5>
+                        Direct
+                    </h5>
+                    <img src="q-icon.jpg" alt="quantexa icon" />
+                </a>
+            </div>
+
+            <div class="tile">
+                <a href="https://www.wp.pl" target="_blank" class="tile-content">
+                    <h5>
+                        Direct
+                    </h5>
+                    <img src="q-icon.jpg" alt="quantexa icon" />
+                </a>
+            </div>
+
+            <div class="tile">
+                <a href="https://www.wp.pl" target="_blank" class="tile-content">
+                    <h5>
+                        Direct
+                    </h5>
+                    <img src="q-icon.jpg" alt="quantexa icon" />
+                </a>
+            </div>
+
+            <div class="tile">
+                <a href="https://www.wp.pl" target="_blank" class="tile-content">
+                    <h5>
+                        Direct
+                    </h5>
+                    <img src="q-icon.jpg" alt="quantexa icon" />
+                </a>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <form id="form">
+                <div class="form-input">
+                    <label for="link">Fancy sharing a link?</label>
+                    <input type="text" name="link" id="link" placeholder="provide a link" />
+                    <button type="button" onclick="sendEmail()">send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const tiles = document.querySelectorAll(".tile");
+
+        [...tiles].map(tile => {
+
+
+            tile.addEventListener("click", (event) => {
+                const modal = tile.getElementsByClassName("modal")[0]
+                modal.classList.add("open")
+                modal.addEventListener("click", (event) => {
+                    const modalContent = modal.getElementsByClassName("modal-content")[0]
+
+                    if (event.target !== modal) {
+                        return
+                    }
+
+                    event.stopPropagation();
+                    modal.classList.remove("open")
+
+
+                })
+            })
+
+        })
+
+        const sendEmail = () => {
+            const link = document.querySelector('#link').value;
+            const mailtoLink = "mailto:antoni@stantart.pl?subject=" + encodeURIComponent('New form submission') + "&body=" + encodeURIComponent("Link: " + link);
+
+            window.open(mailtoLink);
+        }
+
+    </script>
+</body>
+
+</html>
